@@ -7,7 +7,7 @@ Criado por Linus Torvaldos (Conhecido pelo desenvolvimento do Kernel do GNU/Linu
 
 Nesse tutorial quero te mostrar a usar principalmente a linha de comando, mesmo que editores de código como Visual Studio Code possuam ferramentas e extensões para utilizar de uma maneira mais visual, o terminal ainda tem grandes vantagens e ainda lhe dará a maior parte das opções possiveis.
 
-Para isso é preciso instalar o git, no caso do GNU/Linux ele pode ser instalado pelos gerenciadores de pacote como `yum` para sistemas baseados em Red Hat ou `apt` para baseados em debian com o seguinte comando 
+Para isso é preciso instalar o git, no caso do GNU/Linux ele pode ser instalado pelos gerenciadores de pacote como `yum` para sistemas baseados em Red Hat ou `apt` para baseados em Debian com o seguinte comando 
 
 ```bash
 sudo apt install git-all #ou
@@ -80,4 +80,47 @@ git show <parte_do_id>
 
 ### Ramificações (ou branchs)
 
-O git possui um sistema muito bom chamado branches, que no caso são ramificações que podem isolar o desenvolvimento do projeto, sendo possivel criar varias ramificações para por exemplo produção, desenvolvimento, uma nova feature. Como foi mostrado usando o Git Bash.
+O git possui um sistema muito bom chamado branches, que no caso são ramificações que podem isolar o desenvolvimento do projeto, sendo possivel criar varias ramificações para por exemplo produção, desenvolvimento, uma nova feature. 
+Como foi mostrado usando o Git Bash para windows, a branch que estamos utilizando aparece logo acima entre parênteses, mas em alguns shells mais antigos como `sh` ou `bash` não possuem essa opção, para verificar a branch atual use:
+
+```bash
+git branch
+```
+
+que ele irá mostrar com um `*` a branch atual sendo utilizada. Para criar uma nova branch use:
+
+```bash
+git checkout -b <nome_branch>
+```
+
+Ele irá criar e automaticamente mudar para a nova ramificação. se quiser voltar apenas use `git checkout <nome_branch>` para voltar para a existente.
+
+### Repositórios
+
+Até agora o que eu mostrei foram apenas modificações locais mas geralmente git é necessário quando temos uma equipe trabalhando e fazendo commits para um local que podemos facilmente acessar e fazer nossos commits tambem. para isso temos o repositório de código, como o proprio GitHub por exemplo, onde podemos mandar nossas alterações e obter a ultima versão do historico de alterações.
+
+Vamos primeiro criar um novo repositório, que pode ser feito com a ajuda desse [Tutorial](https://docs.github.com/pt/free-pro-team@latest/github/getting-started-with-github/create-a-repo).
+
+Agora existe algumas maneiras de como podemos adicionar de como podemos linkar nosso repositorio com nosso projeto atual, nesse tutorial irei mostrar duas das maneiras que vi que são mais utilizadas.
+
+- Clonar o projeto, mover os arquivos nos quais estava trabalhando para o clone, adicionar eles ao repositório e mandar as alterações para o repositório
+
+```bash
+git clone <url_do_repositório> #se quiser adicionar um nome diferente á pasta criada use: git clone <url_do_repositório> <nome_pasta>
+cd <nome_repositório>
+mv ../caminho/do/projeto/* .
+git add .
+git commit -m "<comentario>"
+git push origin <branch>
+```
+
+Vimos comandos novos até o momento, vamos explicar cada um: </br>
+`git clone <url_do_repositório>`: ele faz um clone de tudo o que está no repositório remoto para dentro de uma pasta do seu computador. </br>
+`git push origin <branch>`: esse comando manda todos os commits que não estão no repositório para ele, agora sendo visivel por todo o time. `origin` nesse caso é o nome que o repositório dá para o clone do projeto para ter uma maneira de identificar para onde que os commits devem ir. </br>
+
+
+- Dentro do projeto adicionar um link remoto, pegar todas as alterações do repositório remoto, e mandar as alterações. dentro do projeto git digite:
+
+```bash
+git add remote <url_do_repositório> <nome_remoto>
+```
