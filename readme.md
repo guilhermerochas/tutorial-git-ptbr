@@ -111,7 +111,7 @@ cd <nome_repositório>
 mv ../caminho/do/projeto/* .
 git add .
 git commit -m "<comentario>"
-git push origin <branch>
+git push origin <branch_remota>
 ```
 
 Vimos comandos novos até o momento, vamos explicar cada um: </br>
@@ -123,4 +123,12 @@ Vimos comandos novos até o momento, vamos explicar cada um: </br>
 
 ```bash
 git remote add <nome_remoto> <url_do_repositório>
+git pull <nome_remoto> <branch_remota>
+git push <nome_remoto> <branch_remota>
 ```
+
+é possivel que de um erro com a mensagem dizendo que o git se recusa a fazer o merge de históricos não relacionados, o que é possivel de se resolver com o comando:
+```bash
+git pull <nome_remoto> <branch_remota> --allow-unrelated-histories
+```
+
