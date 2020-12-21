@@ -40,3 +40,44 @@ Quando você inicializa o git em um projeto com `git init` a ferramenta cria par
 
 O git trabalha com um sistema chamado commit. Um commit é o ato de tornar permanente uma ou um conjunto de alterações feitas podendo ser até mesmo etiquetadas por mensagens como "adiçaõ do arquivo arquivo.txt", ou seja, caso você adicione um arquivo naquele diretorio o git inicialmente não irá reconhecer e nem gravar o historico de alterações.
 
+![inicialização e adição de arquivo](https://github.com/guilhermerochas/tutorial-git-ptbr/blob/main/imgs/exemplo_init.png)
+
+No exemplo acima fazemos os seguintes passos: criamos um diretório, inicializamos o git dentro dele, criamos um arquivo simples e, com o comando `git status`, checamos o historico de alterações. É mostrado que o arquivo que adicionamos não é possivel de ser registrada pelo historico e para isso precisamos adiciona-la.
+
+Vamos usar o seguinte comando:
+
+```bash
+git add <arquivo> #caso queira adicionar um conjunto de arquivos, vá a raiz do projeto e digite: git add .
+git commit #caso queira adicionar um comentario da alteração pode com: git commit -m "<comentario>"
+```
+
+![primeiro commit](https://github.com/guilhermerochas/tutorial-git-ptbr/blob/main/imgs/primeiro_commit.png)
+
+Vemos que agora o git não reclama mais do arquivo e podemos seguir em frente. Vamos supor que aquele arquivo é um arquivo que nós nao queremos que o git tenha mais conhecimento dele para remover depois, para fazer isso use:
+
+```bash
+git rm --cached <arquivo>
+```
+
+### Mostrando o Histórico 
+
+Você no momento fez vários commits e adições no seu projeto e agora você quer ver o historico dessas alterações:
+
+```bash
+git log
+```
+
+Ele irá te mostrar todas as alterações já feitas naquele projeto junto com um id para cada commit. Caso você queira apenas ver as ultimas 10 alterações do projeto pode usar:
+
+```bash
+git log -n 10
+```
+
+Mas como saber o que aquele commit especifico fez no meu projeto? use o `git show`:
+```bash
+git show <parte_do_id>
+```
+
+### Ramificações (ou branchs)
+
+O git possui um sistema muito bom chamado branches, que no caso são ramificações que podem isolar o desenvolvimento do projeto, sendo possivel criar varias ramificações para por exemplo produção, desenvolvimento, uma nova feature. Como foi mostrado usando o Git Bash.
