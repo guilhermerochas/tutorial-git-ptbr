@@ -126,6 +126,9 @@ git remote add <nome_remoto> <url_do_repositório>
 git pull <nome_remoto> <branch_remota>
 git push <nome_remoto> <branch_remota>
 ```
+Ainda não expliquei o comando git pull: </br>
+`git pull`: pega todas as alterações do repositório </br>
+
 
 é possivel que de um erro com a mensagem dizendo que o git se recusa a fazer o merge de históricos não relacionados, o que é possivel de se resolver com o comando:
 ```bash
@@ -143,3 +146,30 @@ Para checar todos os commits que nao foram mandados para o repositório, use:
 ```bash
 git cherry
 ```
+
+### Resolvendo conflitos
+
+Vimos até agora que o git é uma ferramenta poderosa para a utilização de versionamento para equipes de desenvolvimento. mas o que acontece quando ocorre a alteração de um mesmo arquivo em uma mesma linha por um outro desenvolvedor e logo depois fazemos o `git pull`? os famosos conflitos. um bom exemplo disso pode ser explicado com o seguinte [video](https://www.youtube.com/watch?v=PZGJf8YPhtc).
+No video o João usa um editor de código chamado Visual Studio Code para resolver as alterações, porem o proprio git ja vem com um "editor de conflitos" chamado `mergetool`
+onde é possivel utilizar ferramentas de linha de comando ou gráficas para se corrigir tais problemas.
+
+Primeiro para checar as diferenças no conflito podemos utilizar o seguinte comando:
+```bash
+git diff
+```
+
+Para resolver o conflito use o comando:
+```bash
+git mergetool 
+```
+
+Caso prefira uma ferramenta visual, ou utilize o Visual Studio Code por exemplo, ou use o [p4merge](https://www.perforce.com/downloads/visual-merge-tool) que no caso precisa ser baixado e é suportado como uma ferramenta oficial para merge.
+
+Para utilizar:
+```bash
+git mergetool --tool=<nome_ferramenta_de_merge>
+```
+
+## Muito Obrigado 
+
+Muito obrigado para você que leu até aqui, caso tenha alguma recomendação ou mudança que eu deva fazer me contate via as Issues do GitHub!!
