@@ -122,5 +122,5 @@ Vimos comandos novos até o momento, vamos explicar cada um: </br>
 - Dentro do projeto adicionar um link remoto, pegar todas as alterações do repositório remoto, e mandar as alterações. dentro do projeto git digite:
 
 ```bash
-git add remote <url_do_repositório> <nome_remoto>
+git remote add <nome_remoto> <url_do_repositório>
 ```
