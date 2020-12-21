@@ -136,5 +136,10 @@ git pull <nome_remoto> <branch_remota> --allow-unrelated-histories
 
 Caso você tenha feito um commit e não queira que ele seja adicionado no histórico quando for mandado para o repositório, você pode remover aquele commit com o seguinte comando:
 ```bash
+git reset --soft HEAD~1
+```
 
+Para checar todos os commits que nao foram mandados para o repositório, use:
+```bash
+git cherry
 ```
